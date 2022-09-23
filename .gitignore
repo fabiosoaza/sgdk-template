@@ -1,0 +1,37 @@
+# automatically generated from vscode
+.vscode
+.factorypath
+
+
+# release folder to distribute binaries
+out
+
+
+# all other type of files generated automatically
+linkfile
+*.o
+*.a
+*.obj
+*.bin
+*.sym
+*.pic
+*.pal
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+*.lck
+*.versionsBackup
+
+# IntelliJ
+.idea
+*.ipr
+*.iml
+*.iws
+
+# NetBeans
+nb-configuration.xml
+
+

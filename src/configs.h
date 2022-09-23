@@ -1,0 +1,10 @@
+#ifndef _CONFIGS_H_
+#define _CONFIGS_H_
+
+#define SCREEN_WIDTH 320
+#define SCREEN_HEIGHT 224
+
+#define SCREEN_WIDTH_IN_TILES (SCREEN_WIDTH / 8)
+#define SCREEN_HEIGHT_IN_TILES (SCREEN_HEIGHT / 8)
+
+#endif //_CONFIGS_H_
