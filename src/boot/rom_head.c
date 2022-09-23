@@ -10,8 +10,8 @@ const ROMHeader rom_header = {
     "SEGA MEGA DRIVE ",
 #endif
     "(C)FABIOSOAZA   ",
-    "BREAKOUTZIN                                     ",    
-    "BREAKOUTZIN                                     ",    
+    "SGDK TEMPLATE                                   ",    
+    "SGDK TEMPLATE                                   ",    
     "GM 00000000-00",
     0x000,
     "JD              ",
