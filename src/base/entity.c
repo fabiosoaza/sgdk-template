@@ -51,6 +51,12 @@ void Entity_setY(Entity *el, s16 py)
     el->y = py;
 }
 
+void Entity_move(Entity *el)
+{
+    Entity_setX(el, el->x + fix16ToInt(el->velX));
+    Entity_setY(el, el->y + fix16ToInt(el->velY));
+}
+
 void Entity_moveX(Entity *e, s16 px)
 {
     Entity_setX(e, e->x + px);

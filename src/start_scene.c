@@ -28,7 +28,8 @@ Entity square = (Entity){
     .y = 48,
     .width = 10,
     .height = 10,
-};
+    .velX = FIX16(0),
+    .velY = FIX16(0)};
 
 Scene *StartScene_create()
 {
@@ -47,8 +48,7 @@ void StartScene_init(Game *game)
     game->state = TITLE;
     VDP_setTextPlane(BG_A);
     VDP_loadTileData(squareTileData, 1, 1, 0);
-    PAL_setColor(1, RGB24_TO_VDPCOLOR(0xFF0000)); 
-
+    PAL_setColor(1, RGB24_TO_VDPCOLOR(0xFF0000));
 
     VDP_setTileMapXY(BG_B, 1, square.x / 8, square.y / 8);
 }
@@ -65,13 +65,18 @@ void StartScene_update(Game *game)
         __updateGraphics = TRUE;
         __frameCounter++;
     }
+
+    if (__moving == TRUE)
+    {
+        Entity_move(&square);
+        __moving = FALSE;
+    }
 }
 
 void StartScene_draw(Game *game)
 {
     if (__updateGraphics)
     {
-        VDP_clearPlane(BG_B, FALSE);
 
         Utils_showFormattedText("FPS %02d", 1, 1, SYS_getFPS());
 
@@ -86,7 +91,9 @@ void StartScene_draw(Game *game)
 
         Utils_showFormattedText("SQUARE[x=%03d, y=%03d]", 1, 4, square.x, square.y);
 
+        VDP_clearPlane(BG_B, FALSE);
         VDP_setTileMapXY(BG_B, 1, square.x / 8, square.y / 8);
+
         __updateGraphics = FALSE;
     }
 }
@@ -108,7 +115,8 @@ void StartScene_onInputEvent(Game *game, u16 joy, u16 changed, u16 state)
             if (square.x - 8 >= 8)
             {
                 __moving = TRUE;
-                Entity_moveX(&square, -8);
+                square.velX = FIX16(-8);
+                square.velY = FIX16(0);
             }
         }
 
@@ -117,7 +125,8 @@ void StartScene_onInputEvent(Game *game, u16 joy, u16 changed, u16 state)
             if (square.x + 8 <= 308)
             {
                 __moving = TRUE;
-                Entity_moveX(&square, 8);
+                square.velX = FIX16(8);
+                square.velY = FIX16(0);
             }
         }
 
@@ -126,7 +135,8 @@ void StartScene_onInputEvent(Game *game, u16 joy, u16 changed, u16 state)
             if (square.y - 8 >= 48)
             {
                 __moving = TRUE;
-                Entity_moveY(&square, -8);
+                square.velY = FIX16(-8);
+                square.velX = FIX16(0);
             }
         }
 
@@ -135,10 +145,11 @@ void StartScene_onInputEvent(Game *game, u16 joy, u16 changed, u16 state)
             if (square.y + 8 <= 214)
             {
                 __moving = TRUE;
-                Entity_moveY(&square, 8);
+                square.velY = FIX16(8);
+                square.velX = FIX16(0);
             }
         }
-        else if ((changed & BUTTON_RIGHT) | (changed & BUTTON_LEFT))
+        else if ((changed & BUTTON_RIGHT) | (changed & BUTTON_LEFT) | (changed & BUTTON_UP) | (changed & BUTTON_DOWN))
         {
             __moving = FALSE;
         }

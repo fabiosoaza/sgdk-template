@@ -20,8 +20,8 @@ typedef struct _Entity
     int oldY;
     u16 width;
     u16 height;
-    int velX;
-    int velY;
+    fix16 velX;
+    fix16 velY;
     bool enabled;
 } Entity;
 
