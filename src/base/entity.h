@@ -40,6 +40,7 @@ void Entity_setY(Entity *el, s16 py);
 
 void Entity_moveX(Entity *el, s16 px);
 void Entity_moveY(Entity *el, s16 py);
+void Entity_move(Entity *el);
 
 bool Entity_collided(Entity el1, Entity el2);
 bool Entity_collidedFromTop(Entity principal, Entity b);
