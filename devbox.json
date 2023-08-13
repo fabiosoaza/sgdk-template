@@ -1,0 +1,23 @@
+{
+  "packages": [
+    "tiled@latest",
+    "vscode@1.80.2"
+  ],
+  "env": {
+        "SGDK_PATH": "$PWD/.devbox/SGDK" ,
+        "BLASTEM_PATH": "$PWD/.devbox/blastem"    
+    }, 
+  "shell": {
+    "init_hook": [
+      "alias build-rom=\"./run.sh build\"",
+      "alias debug-rom=\"$BLASTEM_PATH/blastem out/rom.bin\""
+    ],
+    "scripts": {
+      "setup" : [
+        "git clone git@github.com:Stephane-D/SGDK.git $SGDK_PATH  2>/dev/null",
+        "wget  -O /tmp/blastem64-0.6.2.tar.g /tmp/ https://www.retrodev.com/blastem/blastem64-0.6.2.tar.gz && tar -xvf /tmp/blastem64-0.6.2.tar.g -C /tmp/",
+        "mkdir -p $BLASTEM_PATH && mv /tmp/blastem64-0.6.2/* $BLASTEM_PATH"
+      ]
+    }
+  }
+}

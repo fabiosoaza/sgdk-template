@@ -17,6 +17,9 @@ linkfile
 *.pic
 *.pal
 
+.devbox
+devbox.lock
+
 # Eclipse
 .project
 .classpath

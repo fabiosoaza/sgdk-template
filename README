@@ -1,0 +1,185 @@
+======================
+Regen/GTK+ 0.95 ReadMe
+======================
+
+By AamirM, Copyright (C) 2009
+
+First of all, I would like to thank the following:
+
+Charles MacDonald, St�phane Dallongeville, Eke, notaz, TascoDeluxe, Steve Snake,
+Karl Stenerud, Richard Mitton, Juergen Buchmueller, Tatsuyuki Satoh, Tiido, Sik,
+Jarek Burczynski, Shay Green, King of Chaos, David Haywood, drx, Igor Pavlov,
+Nemesis, Yakovlev Victor, Kaneda, Mitsutaka Okazaki, Juergen Buchmueller,
+ZLIB team, SDL team. and all other people who gave suggestions, bug reports,
+feedback.
+
+
+Legal Stuff
+-----------
+
+Regen is Copyright (C) 2009, AamirM. All rights reserved.
+
+You may use and/or redistribute Regen provided that you :
+
+1) Do not modify and/or alter, in any way, the files included.
+2) You distribute all the files you got originally with Regen.
+3) You may not sell, lease, rent or otherwise seek to gain monetary profit from
+   Regen.
+4) You may not distribute Regen with ROM images unless you have the legal right
+   to distribute them.
+5) You may not use Regen for commercial purposes.
+
+DISCLAIMER: The author of Regen doesn't guarantee its fitness for any purpose,
+implied or otherwise, and do not except responsibility for any damages
+whatsoever that might occur when using Regen. All games emulated by Regen,
+including any images and sounds therein, are copyrighted by their respective
+copyright holders. Regen DOES NOT INCLUDE any ROM images of emulated games.
+
+SEGA, Master System, GameGear, Genesis, MegaDrive, SegaCD, MegaCD, and 32X are
+trademarks of Sega Enterprises Ltd.  Regen is not authorized by, endorsed by, or
+affiliated with Sega Enterprises, Ltd. in any way.
+
+
+Introduction
+------------
+
+Regen is an emulator which can emulate the following systems with very high
+accuracy:
+
+* Sega Genesis/MegaDrive.
+
+* Sega Master System, GameGear, SG-1000, SC-3000.
+
+It also contains many other useful features and stuff :) .
+
+The emulation of 8-bit consoles is currently not available in the Linux port.
+You can get the latest version of Regen from:
+
+Website : http://aamirm.hacking-cult.org
+Forums  : http://gendev.spritesmind.net/forum/viewforum.php?f=15
+
+Latest betas are only posted on the forum boards.
+
+
+Requirements
+------------
+
+Processor: At least a Pentium III
+RAM      : At least 128 MB.
+Graphics : Anything should work, though cards with hardware acceleration are
+           HIGHLY recommended.
+Sound    : Anything supported by Linux should work.
+Input    : Anything supported by Linux should work (including joypads/gamepads).
+
+OS and Libraries:
+Regen/GTK+ was developed on Fedora Core 7.
+Regen/GTK+ requires GTK+ >= 2.10 and its dependencies.
+Regen/GTK+ requires SDL  >= 1.2.11
+
+There are other dependencies as well but I don't know how to find them :) .
+But hopefully it will work out. Just double-click the damn thing and if it
+doesn't work, report it.
+
+
+Important Usage Instructions
+----------------------------
+
+* Regen/GTK+ stores everything in "~/.regen". By everything, I mean, the
+  configuration settings, screen shots, quick save/load states, WAV logs, SRAM
+  etc..
+
+* Chaging the "Video Driver" requires a restart. Changing the video driver to
+  SDL doesn't work that way. To set the video driver to SDL do the following:
+
+  		1) Change Video driver to Software.
+  		2) Restart the emulator.
+  		3) Change Video driver to SDL.
+  		4) Restart the emulator.
+
+* Changing the sound driver also requires a restart to take effect.
+
+* By default, Regen/GTK+ starts up in a mode whereby it can work on almost any
+  PC. Though these settings work, they are not optimal. For better performance,
+  try changing the Video Driver to OpenGL or XVideo and Sound Driver to OSS or
+  ALSA.
+
+* The following things don't work. They are just a reminder for me to do them
+  one day:
+
+  		1) Start Netplay
+  		2) Start AVI Recording
+  		3) Correct Aspect
+  		4) Cheats
+  		5) Control using Mouse
+
+Thats all! Other things should be self-explainatory.
+
+
+Intalling and Using Video Plugins
+---------------------------------
+
+All the video plugins should be installed in "~/.regen/plugins/" directory.
+After installing, they will show up in "Video Plugins" sub menu.
+
+
+Troubleshoothing and advanced settings
+--------------------------------------
+
+* Color of the text messages and FPS indicator can be changed by specifying the
+  R, G and B components of your favourite colors in the TextColor_R,
+  TextColor_G and TextColor_B respectively. Remember, the color format is 5-6-5.
+
+* If the sound is crackling or lagging etc... try changing the
+  "SoundBufferSize" setting in the config file. The value should be specified in
+  milliseconds.
+
+* By default, Regen/GTK+ will automatically try to use the appropriate sound
+  device, but if you have something else or want to try some other setting, you
+  can change the "SoundDevice" in the config file, to point to the device (e.g.
+  /dev/audio) of your choice.
+
+* Some games and hacks do things which result in the real hardware and Regen to
+  lock-up. If you don't want this to happen, set the "EmulateLockups" setting
+  in the config file to 0.
+
+
+Contact
+-------
+
+Bugs, feature request, and any thing emulation related is welcomed.
+But ROM requests will be ignored.
+Please do read this Readme completely (yes, including the history section)
+before mailing question(s) as many of the answers (and limitations, bugs)
+are mentioned here.
+
+You can report bugs, request features at any of the following:
+
+Website : http://aamirm.hacking-cult.org
+Forums  : http://gendev.spritesmind.net/forum/viewforum.php?f=15
+
+You can also contact me at "aamir dot m at live dot com"
+
+where dot = .
+      at  = @
+
+Thanks for trying my emulator and stay safe,
+
+AamirM
+
+
+History
+-------
+
+Regen/GTK+ 0.95
+---------------
+
+* Completely new GTK+ based GUI front end with support for hardware accelerated
+  video cards and many other things.
+
+* Truck loads of other stuff. Too much to mention (read: pain in the ass to
+  write) here.
+
+* Massively updated core emulation. Previous Regen ports of linux used slightly
+  out-dated emulation core compared to thier same versioned Windows couterparts.
+  But not this one, it uses the same emulation core as that of Regen 0.95 for
+  Windows. All in all, it means its more accurate than ever.

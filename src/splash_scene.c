@@ -35,7 +35,7 @@ VDP_fillTileMapRectInc(BG_B, TILE_ATTR_FULL(PAL1, 0, FALSE, FALSE, 1), 17, 13, 7
 
 void SplashScene_update(Game *game)
 {
-    if (__frameCounter == 300)
+    if (__frameCounter == 150)
     {
         __frameCounter = 0;
         Utils_resetScreen();

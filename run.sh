@@ -2,8 +2,8 @@
 
 function build(){
     echo "Building..."
-    docker run --rm -v "$PWD":/src fabiosoaza/sgdk:v1.80 clean
-    docker run --rm -v "$PWD":/src fabiosoaza/sgdk:v1.80
+    docker run --rm -v "$PWD":/src fabiosoaza/sgdk:v1.90 clean
+    docker run --rm -v "$PWD":/src fabiosoaza/sgdk:v1.90
 }    
 
 function debug(){
