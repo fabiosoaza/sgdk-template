@@ -1,5 +1,9 @@
 #!/bin/bash
 
+function submodule_update(){
+    git submodule update
+}
+
 function build(){
     echo "Building..."
     docker run --rm -v "$PWD":/src fabiosoaza/sgdk:v1.90 clean
@@ -11,6 +15,7 @@ function debug(){
     blastem -m gen -d -e out/rom.bin
 }
 
+
  case $1 in
         "debug")
             debug
@@ -18,4 +23,7 @@ function debug(){
         "build")
             build
             ;;
+        "submodule-update")
+            submodule_update
+            ;;    
   esac

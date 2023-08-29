@@ -3,14 +3,14 @@
 
 typedef enum _GameState
 {
-    BOOTING,
-    PAUSED,
-    PLAYING,
+    GAME_BOOTING,
+    GAME_PAUSED,
+    GAME_PLAYING,
     GAME_OVER,
-    TITLE,
-    BEATED,
-    DEAD,
-    RESTART_LEVEL
+    GAME_TITLE,
+    GAME_BEATED,
+    GAME_DEAD,
+    GAME_RESTARTING_LEVEL
 }GameState;
 
 
@@ -32,6 +32,7 @@ struct Game{
     GameState state;
     Scene * scene;
     bool loadSceneInit;
+    s16 frameCounter;
 };
 
 

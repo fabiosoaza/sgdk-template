@@ -1,6 +1,7 @@
 #ifndef _START_SCENE_H_
 #define _START_SCENE_H_
 
+#include <genesis.h>
 #include "base/game.h"
 
 Scene * StartScene_create();

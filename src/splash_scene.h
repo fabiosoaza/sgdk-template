@@ -3,7 +3,6 @@
 
 #include "base/game.h"
 
-Scene * SplashScene_create();
 void SplashScene_init(Game *);
 void SplashScene_update(Game *);
 

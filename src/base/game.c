@@ -11,12 +11,12 @@ static Game __INSTANCE;
 
 bool Game_isPlaying(Game *game)
 {
-    return game->state == PLAYING;
+    return game->state == GAME_PLAYING;
 }
 
 bool Game_isPaused(Game *game)
 {
-    return game->state == PAUSED;
+    return game->state == GAME_PAUSED;
 }
 
 bool Game_isGameOver(Game *game)
@@ -26,9 +26,9 @@ bool Game_isGameOver(Game *game)
 
 void Game_pause(Game *game)
 {
-    if (game->state == PLAYING || game->state == PAUSED)
+    if (game->state == GAME_PLAYING || game->state == GAME_PAUSED)
     {
-        game->state = game->state == PAUSED ? PLAYING : PAUSED;
+        game->state = game->state == GAME_PAUSED ? GAME_PLAYING : GAME_PAUSED;
     }
 }
 
@@ -49,7 +49,7 @@ void Game_loadScene(Scene *scene)
 int Game_run(bool hardReset)
 {
     __gameInit();
-
+    __INSTANCE.frameCounter = 1;
     while (TRUE)
     {
         if (__INSTANCE.loadSceneInit == TRUE && __INSTANCE.scene != NULL && __INSTANCE.scene->init != NULL)
@@ -75,9 +75,19 @@ void __gameInit()
 void __gameUpdate()
 
 {
+
     if (__INSTANCE.scene != NULL && __INSTANCE.scene->update != NULL)
     {
         __INSTANCE.scene->update(&__INSTANCE);
+    }
+
+    if (__INSTANCE.frameCounter == 60)
+    {
+        __INSTANCE.frameCounter = 1;
+    }
+    else
+    {
+        __INSTANCE.frameCounter++;
     }
 }
 void __gameDraw()

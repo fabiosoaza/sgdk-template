@@ -153,3 +153,24 @@ Vect2D_f16 Utils_reflect(Vect2D_f16 vector, Vect2D_f16 normal)
     result.y = fix16Sub(vector.y, fix16Mul(normal.y, val));
     return result;
 }
+
+//https://stackoverflow.com/a/33923239
+int Utils_dumpStruct(void *myStruct, long size)
+{
+    unsigned int i;
+    const unsigned char * const px = (unsigned char*)myStruct;
+    for (i = 0; i < size; ++i) {
+        if( i % (sizeof(int) * 8) == 0){
+            kprintf("\n%08X ", i);
+        }
+        else if( i % 4 == 0){
+            kprintf(" ");
+        }
+        kprintf("%02X", px[i]);
+    }
+
+    kprintf("\n\n");
+    return 0;
+}
+
+

@@ -31,21 +31,11 @@ Entity square = (Entity){
     .velX = FIX16(0),
     .velY = FIX16(0)};
 
-Scene *StartScene_create()
-{
-    Scene *ptr = (Scene *)malloc(sizeof(Scene));
-    ptr->init = StartScene_init;
-    ptr->update = StartScene_update;
-    ptr->draw = StartScene_draw;
-    ptr->onInputEvent = StartScene_onInputEvent;
-    return ptr;
-}
-
 void StartScene_init(Game *game)
 {
 
     VDP_clearTileMap(BG_B, 0, 20 * 14, FALSE);
-    game->state = TITLE;
+    game->state = GAME_TITLE;
     VDP_setTextPlane(BG_A);
     VDP_loadTileData(squareTileData, 1, 1, 0);
     PAL_setColor(1, RGB24_TO_VDPCOLOR(0xFF0000));
